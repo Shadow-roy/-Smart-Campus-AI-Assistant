@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Campus Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Custom Scrollbar - Violet Theme */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #a78bfa; 
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8b5cf6; 
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #4c1d95; 
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #6d28d9; 
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+            },
+            borderRadius: {
+              'none': '0',
+              'sm': '0.2rem',
+              'DEFAULT': '0.5rem',
+              'md': '0.75rem',
+              'lg': '1rem',
+              'xl': '1.5rem',
+              '2xl': '2rem',
+              '3xl': '2.5rem',
+              'full': '9999px',
+            },
+            colors: {
+              // Light Theme (Modern Violet)
+              primary: 'hsl(262 83% 58%)', // Violet 600
+              onPrimary: 'hsl(0 0% 100%)',
+              primaryContainer: 'hsl(262 83% 96%)', 
+              onPrimaryContainer: 'hsl(262 83% 20%)', 
+              
+              secondary: 'hsl(310 60% 55%)', // Fuchsia
+              onSecondary: 'hsl(0 0% 100%)',
+              secondaryContainer: 'hsl(310 60% 95%)',
+              onSecondaryContainer: 'hsl(310 60% 20%)',
+              
+              tertiary: 'hsl(190 90% 45%)', // Cyan
+              onTertiary: 'hsl(0 0% 100%)',
+              tertiaryContainer: 'hsl(190 90% 95%)',
+              onTertiaryContainer: 'hsl(190 90% 20%)',
+              
+              error: 'hsl(350 80% 60%)',
+              onError: 'hsl(0 0% 100%)',
+              errorContainer: 'hsl(350 100% 97%)',
+              onErrorContainer: 'hsl(350 80% 25%)',
+              
+              background: 'hsl(250 30% 98%)', // Very light violet-grey
+              onBackground: 'hsl(260 20% 15%)',
+              
+              surface: 'hsl(0 0% 100%)',
+              onSurface: 'hsl(260 20% 15%)',
+              surfaceVariant: 'hsl(260 10% 96%)', 
+              onSurfaceVariant: 'hsl(260 10% 40%)', 
+              
+              outline: 'hsl(260 10% 80%)', 
+              outlineVariant: 'hsl(260 10% 90%)',
+
+              // Dark Theme Colors (Deep Space Violet)
+              dark: {
+                primary: 'hsl(262 90% 75%)', // Light Violet
+                onPrimary: 'hsl(262 90% 10%)', 
+                primaryContainer: 'hsl(262 70% 25%)', 
+                onPrimaryContainer: 'hsl(262 90% 90%)', 
+                
+                secondary: 'hsl(310 70% 70%)', // Pink
+                onSecondary: 'hsl(310 70% 10%)', 
+                secondaryContainer: 'hsl(310 50% 25%)', 
+                onSecondaryContainer: 'hsl(310 70% 90%)',
+
+                tertiary: 'hsl(190 80% 70%)', 
+                onTertiary: 'hsl(190 80% 10%)', 
+                tertiaryContainer: 'hsl(190 60% 20%)', 
+                onTertiaryContainer: 'hsl(190 80% 90%)',
+
+                error: 'hsl(350 100% 80%)', 
+                onError: 'hsl(350 100% 15%)', 
+                errorContainer: 'hsl(350 80% 25%)', 
+                onErrorContainer: 'hsl(350 100% 90%)', 
+                
+                background: 'hsl(260 30% 8%)', // Deep Dark Violet
+                onBackground: 'hsl(260 10% 90%)', 
+                
+                surface: 'hsl(260 25% 12%)', 
+                onSurface: 'hsl(260 10% 90%)',
+                
+                surfaceVariant: 'hsl(260 20% 18%)', 
+                onSurfaceVariant: 'hsl(260 10% 70%)',
+                
+                outline: 'hsl(260 15% 30%)',
+                outlineVariant: 'hsl(260 15% 20%)',
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/jsx-runtime": "https://aistudiocdn.com/react@^19.1.1/jsx-runtime",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.542.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.16.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-on-background dark:bg-dark-background dark:text-dark-onBackground transition-colors duration-500 antialiased selection:bg-primary selection:text-onPrimary dark:selection:bg-dark-primary dark:selection:text-dark-onPrimary">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
