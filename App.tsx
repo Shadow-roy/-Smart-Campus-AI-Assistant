@@ -1,11 +1,12 @@
 
-import React, { useState, createContext, useMemo, useEffect } from 'react';
+import React, { useState, createContext, useMemo, useEffect, lazy, Suspense } from 'react';
 import Sidebar from './components/Sidebar';
-import Dashboard from './components/Dashboard';
-import Timetable from './components/Timetable';
-import Assignments from './components/Assignments';
-import StudyBuddy from './components/StudyBuddy';
-import Profile from './components/Profile';
+const Dashboard = lazy(() => import('./components/Dashboard'));
+const Timetable = lazy(() => import('./components/Timetable'));
+const Assignments = lazy(() => import('./components/Assignments'));
+const StudyBuddy = lazy(() => import('./components/StudyBuddy'));
+const Profile = lazy(() => import('./components/Profile'));
+const Grades = lazy(() => import('./components/Grades'));
 import { type Theme, type View, type ClassSchedule, type UserProfile, type Reminder, type Assignment, type UserContextType, type ThemeContextType, type QuickLink, type Semester, type ChatMessage } from './types';
 import { USER_PROFILE, REMINDERS_DATA, ASSIGNMENTS_DATA } from './constants';
 import BottomNav from './components/BottomNav';
@@ -13,7 +14,6 @@ import { NotificationProvider } from './contexts/NotificationContext';
 import { useNotificationScheduler } from './hooks/useNotifications';
 import Header from './components/Header';
 import { ToastProvider } from './contexts/ToastContext';
-import Grades from './components/Grades';
 
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
@@ -190,7 +190,9 @@ const App: React.FC = () => {
                 <Sidebar activeView={view} setView={setView} />
                 <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto pb-20 md:pb-6 lg:pb-8 bg-background dark:bg-dark-background">
                   <Header activeView={view} userProfile={userProfile} />
-                  {renderView()}
+                  <Suspense fallback={<div>Loading...</div>}>
+                    {renderView()}
+                  </Suspense>
                 </main>
                 <BottomNav activeView={view} setView={setView} />
               </div>
